@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WHAT'S UP BREW - Products</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <header>
+    
+  </header>
+<nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="products.html">Our Products</a></li>
+            <li><a href="contacts.html">Contacts</a></li>
+        </ul>
+    </nav>
+   
+<section>
+<h1 style="text-align: center;">Our Products</h1>
+  <main>
+    <table>
+      <tr>
+        <td>
+          <div class="product" data-description="A classic blend of rich, bold coffee. Start your day with the robust" data-price="₱150.00">
+            <img src="product1.jpg" alt="Product 1">
+            <p>Cafe Americano</p>
+          </div>
+        </td>
+        <td>
+          <div class="product" data-description="Indulge in the sweet harmony of caramel and coffee. Our Caramel Crumble is a delightful treat for your taste buds." data-price="₱180.00">
+            <img src="product2.jpg" alt="Product 2">
+            <p>Caramel Crumble</p>
+          </div>
+        </td>
+        <td>
+          <div class="product" data-description="Experience the smoothness of Spanish Latte, crafted with a perfect balance of espresso and creamy milk." data-price="₱200.00">
+            <img src="product3.jpg" alt="Product 3">
+            <p>Spanish Latte</p>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <div class="product" data-description="For chocolate lovers, our Choco Milkshake is a heavenly blend of rich cocoa and velvety milk." data-price="₱160.00">
+            <img src="product4.jpg" alt="Product 4">
+            <p>Choco Milkshake</p>
+          </div>
+        </td>
+        <td>
+          <div class="product" data-description="Savor the sweetness of our Toffee-flavored coffee, a delicious twist on a classic favorite." data-price="₱170.00">
+            <img src="product5.jpg" alt="Product 5">
+            <p>Toffee</p>
+          </div>
+        </td>
+        <td>
+          <div class="product" data-description="Embrace the unique taste of Matcha with our special blend. A perfect choice for those who enjoy a hint of green tea goodness." data-price="₱190.00">
+            <img src="product6.jpg" alt="Product 6">
+            <p>Matcha</p>
+          </div>
+        </td>
+      </tr>
+    </table>
+  </main>
+</section>
+  <footer>
+        <div class="follow-us">
+            <p>Follow Us</p>
+            <div class="social-icons">
+                <a href="https://www.facebook.com" target="_blank"><img src="fb.ico" alt="Facebook"></a>
+                <a href="https://www.instagram.com" target="_blank"><img src="insta.ico" alt="Instagram"></a>
+                <a href="https://www.youtube.com" target="_blank"><img src="yt.ico" alt="YouTube"></a>
+            </div>
+        </div>
+    </footer>
+
+  <script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const products = document.querySelectorAll('.product');
+
+    products.forEach((product) => {
+      product.addEventListener('mouseover', showPopup);
+      product.addEventListener('mouseout', hidePopup);
+    });
+
+    function showPopup(event) {
+      const product = event.currentTarget;
+      const description = product.dataset.description;
+      const price = product.dataset.price;
+
+      const popup = document.createElement('div');
+      popup.className = 'popup';
+      popup.innerHTML = `
+        <p>Description: ${description}</p>
+        <p>Price: ${price}</p>
+      `;
+
+      document.body.appendChild(popup);
+
+      const centerX = window.innerWidth / 2 - popup.clientWidth / 2;
+      const centerY = window.innerHeight / 2 - popup.clientHeight / 2;
+
+      popup.style.top = `${centerY}px`;
+      popup.style.left = `${centerX}px`;
+    }
+
+    function hidePopup() {
+      const popup = document.querySelector('.popup');
+      if (popup) {
+        document.body.removeChild(popup);
+      }
+    }
+  });
+</script>
+</body>
+</html>
